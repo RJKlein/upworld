@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="nodeLMS">
+  <head>
+    <title>UpWorld</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/stylesheets/style.css" media="screen">
+  </head>
+  <body ng-controller="mainController">
+    <div class="container">
+      <div class="header">
+        <h1>UpWorld App</h1>
+        <hr>
+        <h1 class="lead">Angular + Express + Node + Sequelize + PostgreSQL</h1>
+      </div>
+      <div class="LMS-form">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control input-lg" placeholder="Enter user type..." ng-model="formData.userType">
+            <input type="text" class="form-control input-lg" placeholder="Enter first name..." ng-model="formData.firstName">
+            <input type="text" class="form-control input-lg" placeholder="Enter last name..." ng-model="formData.lastName">
+            Date of Birth: <input type="date" class="form-control input-lg" placeholder="Enter D O B" ng-model="formData.dateOfBirth">
+            <input type="text" class="form-control input-lg" placeholder="Enter isHispanic(true false)" ng-model="formData.isHispanic">
+            <input type="text" class="form-control input-lg" placeholder="Enter race..." ng-model="formData.race">
+            <input type="text" class="form-control input-lg" placeholder="Enter gender..." ng-model="formData.gender">
+          </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createPerson()">Add Person</button>
+        </form>
+      </div>
+      <br>
+      <div class="LMS-list">
+        <ul ng-repeat="person in personData">
+          <li><h3><input class="lead" type="checkbox" ng-click="deletePerson(person.id)">&nbsp;{{ person.lastName + ', ' + person.firstName
+            + ' (' + person.userType + ') ' }}</h3></li><hr>
+        </ul>
+      </div>
+    </div>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>
+  </body>
+</html>
